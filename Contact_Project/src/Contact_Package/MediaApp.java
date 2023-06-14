@@ -6,31 +6,25 @@ import java.util.Vector;
 public class MediaApp {
 	public static Scanner in = new Scanner(System.in);
 	private static Vector <Media> medias = new Vector<Media>();
+	
+	// adding a media to the media list
 	public static void addMedia()
 	{
-		Media newMedia;
-		System.out.println("Enter media name");
-		String name = in.next();
-		System.out.println("Enter media length");
-		int length;
-		while (!in.hasNextInt())
-		{
-			in.nextLine();
-			System.out.println("enter integer");
-		}
-		length = in.nextInt();
-		System.out.println("Enter media type: true-song, false-video");
+		Media newMedia;// create a new media
+		System.out.println("Enter media type: true-song, false-video");// getting the media type
 		while (!in.hasNextBoolean())
 		{
 			in.next();
 			System.out.println("Enter media type: true-song, false-video");
 		}
-		if (in.nextBoolean())
-			newMedia = new Song(length, name);
+		if (in.nextBoolean())// making the new media type
+			newMedia = new Song();
 		else
-			newMedia = new Video(length, name);
-		medias.add(newMedia);
+			newMedia = new Video();
+		medias.add(newMedia);// adding the media to the list
 	}
+	
+	//play first media that has the same name
 	public static void playByName(String name)
 	{
 		for(Media m : medias)
@@ -41,7 +35,10 @@ public class MediaApp {
 				return;
 			}
 		}
+		System.out.println("no media with this name");
 	}
+	
+	// play all the medias
 	public static void playAll()
 	{
 		Iterator<Media> it = medias.iterator();
@@ -83,9 +80,5 @@ public class MediaApp {
                 break;
             }
     	}
-	}
-	public static void main(String[]args)
-	{
-		MediaApp.menu();
 	}
 }
