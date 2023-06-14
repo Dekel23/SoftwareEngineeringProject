@@ -1,7 +1,7 @@
 // group number 4
 package Contact_Package;
 import java.util.Scanner;
-public class Contact implements Printable {
+public class Contact{
 	public static Scanner in = new Scanner (System.in);
 	private String name;
     private String phoneNumber;
@@ -93,8 +93,8 @@ public class Contact implements Printable {
     	return (this.name.equals(other.getName()) && this.phoneNumber.equals(other.getPhoneNumber()));
     }
     
-    public void print()
+    public String toString()
     {
-    	System.out.println(this.name + ":" + this.phoneNumber);
+    	return(this.name + ":" + this.phoneNumber);
     }
 }
