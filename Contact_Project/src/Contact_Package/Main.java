@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
-import java.io.*;
-import java.io.IOException;
 import java.util.Date;
 public class Main {
 	public static Scanner in = new Scanner (System.in);

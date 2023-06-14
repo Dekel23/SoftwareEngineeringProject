@@ -95,6 +95,11 @@ public class Contact{
     
     public String toString()
     {
-    	return(this.name + ":" + this.phoneNumber);
+    	return (this.name + ":" + this.phoneNumber);
     }
+
+    public void print() {
+        System.out.println(this.toString());
+    }
+
 }
