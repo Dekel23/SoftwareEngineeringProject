@@ -6,6 +6,50 @@ public class Contact implements Printable {
 	private String name;
     private String phoneNumber;
 
+    public static void main(String[] arg) {
+        Contact contact1 = new Contact("my name is", "050-000-0000");
+        Contact contact2 = new Contact("my name is", "050-000-0000");
+        Contact contact3 = new Contact("my name was", "050-000-0001");
+
+
+        System.out.print("contact1: ");
+        contact1.print();
+        System.out.print("contact2: ");
+        contact2.print();
+        System.out.print("contact3: ");
+        contact3.print();
+        System.out.print("contact1 == contact2? ");
+        System.out.println(contact1.equals(contact2));
+        System.out.print("contact1 == contact3? ");
+        System.out.println(contact1.equals(contact3));
+        
+        System.out.println();
+
+        System.out.println("contact1 number changed to 050-000-0001");
+        contact1.setPhoneNumber("050-000-0001");
+        System.out.print("contact1 number: ");
+        System.out.println(contact1.getPhoneNumber());
+
+        System.out.println();
+
+        System.out.println("contact1 number changed to 'my name will'");
+        contact1.setName("my name will");
+        System.out.print("contact1 name: ");
+        System.out.println(contact1.getName());
+
+        System.out.println();
+
+        System.out.print("contact1: ");
+        contact1.print();
+
+        System.out.println("trying to set phone number to 'test': ");
+        contact1.setPhoneNumber("test");
+        
+        System.out.print("contact1 number: ");
+        System.out.println(contact1.getPhoneNumber());
+
+    }
+
     public Contact(String name, String phoneNumber)
     {
         this.setName(name);

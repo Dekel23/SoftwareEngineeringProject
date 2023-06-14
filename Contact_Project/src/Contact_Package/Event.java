@@ -6,6 +6,12 @@ public class Event implements Printable {
 	public static Scanner in = new Scanner (System.in);
 	private Date date;
 	private int len;
+
+	public static void main(String[] arg){
+		Event event = new Event(null, 10);
+		event.print();
+	}
+
 	public Event(Date date, int len)
 	{
 		this.setDate(date);

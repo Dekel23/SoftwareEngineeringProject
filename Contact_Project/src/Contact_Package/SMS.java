@@ -37,13 +37,14 @@ public class SMS {
     public SMS(ArrayList<Contact> contacts) {
         this.contacts = new ArrayList<Contact>(contacts.size());
         this.chats = new ArrayList<String>(contacts.size());
-        for (Contact contact : contacts) { // copy all contacts to a new list
-            String name = contact.getName();
-            String phoneNumber = contact.getPhoneNumber();
-
-            this.contacts.add(new Contact(name, phoneNumber));
+        
+        for (Contact contact : contacts) { // duplicated contacts (doesnt use the same list)
+            // String name = contact.getName();
+            // String phoneNumber = contact.getPhoneNumber();
+            this.contacts.add(contact);//new Contact(name, phoneNumber));
             this.chats.add("");
         }
+
 
 
     }
@@ -62,7 +63,9 @@ public class SMS {
     public void addMessage(Contact contact, String message) { // question 1
         int index = this.contacts.indexOf(contact);
         if(index == -1) {
-            System.out.println("!!! CONTACT DOESN'T EXIST !!!");
+            System.out.println("ADDING NEW CONTACT");
+            this.contacts.add(contact);
+            this.chats.add(message);
             return; // contact isn't included
         }
         String chat = chats.get(index);
