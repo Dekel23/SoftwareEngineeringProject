@@ -2,7 +2,7 @@ package Contact_Package;
 import java.util.Date;
 //this is a parent class for Meeting and NotMeeting, who both inherit it.
 import java.util.Scanner;
-public class Event {
+public class Event implements Printable {
 	public static Scanner in = new Scanner (System.in);
 	private Date date;
 	private int len;
