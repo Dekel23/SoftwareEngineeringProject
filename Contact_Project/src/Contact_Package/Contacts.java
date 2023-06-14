@@ -50,23 +50,22 @@ public class Contacts {
     	Collections.sort(contactList, new NumberComp());
     }
     
-    public void deleteContact()
+    public Contact deleteContact(String deleteName)
     {
-        System.out.println("Enter contact first name to delete:");
-        String deleteName = in.next();
         boolean deleted = false;
         for (int i = 0; i < contactList.size(); i++)
         {
             if (contactList.get(i).getName().equals(deleteName)) // search for appearance of the name
             {
-                contactList.remove(i); // remove from list
+                Contact temp = contactList.remove(i); // remove from list
                 deleted = true;
                 System.out.println("Contact deleted successfully");
-                break; // end loop so only one will contact will be deleted
+                return temp; // end loop so only one will contact will be deleted
             }
         }
-        if (!deleted)
+        if (!deleted) 
             System.out.println("Contact not found");
+        return null;
     }
     
     public void addContact()

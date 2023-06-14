@@ -60,6 +60,12 @@ public class SMS {
         return -1;
     }
 
+    public void removeContact(Contact contact) {
+        int index = this.contacts.indexOf(contact);
+        this.contacts.remove(index);
+        this.chats.remove(index);
+    }
+
     public void addMessage(Contact contact, String message) { // question 1
         int index = this.contacts.indexOf(contact);
         if(index == -1) {

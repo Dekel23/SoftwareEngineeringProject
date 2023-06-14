@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
+
 import java.util.Date;
 public class Main {
 	public static Scanner in = new Scanner (System.in);
@@ -31,7 +32,7 @@ public class Main {
             in.nextLine();
             switch(option) {
                 case 1:
-                appCon(con);
+                appCon(con, sms, cal);
                 break;
                 case 2:
                 appSMS(con, sms);
@@ -98,8 +99,10 @@ public class Main {
                 }
                 break;
                 case 2:
+                cal.deleteEvent();
                 break;
                 case 3:
+                cal.printFromDay();
                 break;
                 case 4:
                 System.out.print("Choose index of contact in contact list: ");
@@ -184,7 +187,7 @@ public class Main {
         }
     }
     
-    public static void appCon(Contacts con) {
+    public static void appCon(Contacts con, SMS sms, MyCalendar cal) {
         int option;
         boolean exit = false;
         while (!exit) {
@@ -208,7 +211,13 @@ public class Main {
                 con.addContact();
                 break;
             case 2:
-                con.deleteContact();
+                System.out.println("Enter contact first name to delete:");
+                String deleteName = in.nextLine();
+                Contact d = con.deleteContact(deleteName);
+                if(d != null) {
+                    sms.removeContact(d);
+                    cal.deleteContact(d);
+                }
                 break;
             case 3:
                 con.printContacts();

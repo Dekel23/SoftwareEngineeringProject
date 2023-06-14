@@ -1,5 +1,6 @@
 package Contact_Package;
 import java.util.Date;
+
 public class Meeting extends Event {
 	private Contact contact;
 	public Meeting(Date date, int len, Contact contact)

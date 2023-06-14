@@ -1,5 +1,6 @@
 package Contact_Package;
 import java.util.Date;
+
 public class NotMeeting extends Event{
 	private String description;
 	public NotMeeting(Date date, int len, String description)
