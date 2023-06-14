@@ -1,7 +1,7 @@
 package Contact_Package;
 import java.util.ArrayList;
 //Calendar is already a java Object, so to avoid problems in the future I called the class MyCalendar.
-public class MyCalendar {
+public class MyCalendar implements Printable {
 private ArrayList<Event> eventList = new ArrayList<Event>(); 
 public void addEvent(Event event)
 {
