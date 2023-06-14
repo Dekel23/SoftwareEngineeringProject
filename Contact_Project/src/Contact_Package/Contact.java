@@ -1,7 +1,7 @@
 // group number 4
 package Contact_Package;
 import java.util.Scanner;
-public class Contact {
+public class Contact implements Printable {
 	public static Scanner in = new Scanner (System.in);
 	private String name;
     private String phoneNumber;
