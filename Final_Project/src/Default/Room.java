@@ -5,11 +5,27 @@ import java.util.Collections;
 import java.util.Comparator;
 import Sensors.*;
 
+//This class represent a management of the security issues a room.
 public class Room implements Information {
+	
     private String name;
     private ArrayList<Sensor> sensors;
     private ArrayList<Event> events;
-
+    
+    // Getters
+    public ArrayList<Event> getEvents() {
+    	return this.events;
+    }
+    
+    public ArrayList<Sensor> getSensors() {
+    	return this.sensors;
+    }
+    
+    public String getName() {
+    	return this.name;
+    }
+    
+    // Constructors
     public Room(String name, ArrayList<Sensor> sensors, ArrayList<Event> events) {
         this.name = name;
         this.sensors = new ArrayList<>(sensors);
@@ -23,7 +39,14 @@ public class Room implements Information {
     public Room(String name) {
         this(name, new ArrayList<>(), new ArrayList<>());
     }
-
+    
+    // Copy constructor
+    public Room(Room other){
+        this.name = other.getName();
+        this.sensors = new ArrayList<>(other.getSensors());
+        this.events = new ArrayList<>(other.getEvents());
+    }
+    
     // Add a new event to the events list
     public void alarm(Event event) {
         Event copyEvent = new Event(event);
@@ -40,7 +63,7 @@ public class Room implements Information {
         });
     }
 
-    @Override
+    
     public void printEvents() {
         for (Event event : this.events) 
             System.out.println(event.toString());
@@ -66,7 +89,7 @@ public class Room implements Information {
         for (Sensor sensor : this.sensors) 
             System.out.println(sensor.toString());
     }
-
+    
     @Override
     public String toString() {
         String str = "Room Name=" + name;
@@ -82,4 +105,5 @@ public class Room implements Information {
 
         return str;
     }
+    
 }
