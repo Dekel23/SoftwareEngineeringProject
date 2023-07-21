@@ -12,6 +12,10 @@ public class SecurityCompany {
 	public SecurityCompany(ArrayList<House> houses) {
 		this.houses = houses;
 	}
+
+	public SecurityCompany() {
+		this.houses = new ArrayList<House>();
+	}
 	
 	
 	//Printing events:
@@ -36,6 +40,13 @@ public class SecurityCompany {
 				}
 	    	}
 	    }
+
+	//print houses
+	public void printHouses() {
+		for (House house : this.houses) {
+			System.out.println(house.toString());
+		}
+	}
 	
 	
 	//Printing House owners:
@@ -91,8 +102,8 @@ public class SecurityCompany {
 	    
 	//Add sesnor to specific house and room
 	    public void newSensor(Sensor newSensor, Room room, House house) {
-	    	Sensor copiedSensor = new Sensor(newSensor.getId(), newSensor.getInstallDate(), newSensor.isActive());
-	    	house.newSensor(copiedSensor, room);
+	    	//Sensor copiedSensor = new Sensor(newSensor.getId(), newSensor.getInstallDate(), newSensor.isActive());
+	    	house.newSensor(newSensor, room);//temp
 	    }
 	    
 	    
@@ -189,5 +200,18 @@ public class SecurityCompany {
 	    		}
 	    	}
 	    }    
+
+		public ArrayList<String> getHouseNames() {
+			ArrayList<String> res = new ArrayList<String>();
+			for(House h: houses) {
+				res.add(h.getName());
+			}
+			return res;
+	
+		}
+
+		public House getHouse(int i) {
+			return houses.get(i);
+		}
 	    	   
 }

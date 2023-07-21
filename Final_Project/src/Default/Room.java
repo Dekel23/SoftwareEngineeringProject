@@ -106,4 +106,14 @@ public class Room implements Information {
         return str;
     }
     
+    public ArrayList<String> getSensorNames() {
+        ArrayList<String> res = new ArrayList<String>();
+        for(Sensor h: sensors) {
+            res.add("ID: "+h.getId());
+        }
+        return res;
+
+    }
+    
+
 }

@@ -39,6 +39,13 @@ public class House{
         this.rooms = new ArrayList<>(rooms);
     }
     
+    public House(String name, String address) {
+        this.name = name;
+        this.address = address;
+        this.owners = new ArrayList<>();
+        this.rooms = new ArrayList<>();
+    }
+
     // Copy constructor
     public House(House other){
         this.name = other.getName();
@@ -178,6 +185,31 @@ public class House{
                 return Integer.compare(room1.getEvents().size(), room2.getEvents().size());
             }
         });
+    }
+
+    public ArrayList<String> getRoomNames() {
+        ArrayList<String> res = new ArrayList<String>();
+        for(Room h: rooms) {
+            res.add(h.getName());
+        }
+        return res;
+
+    }
+
+    @Override
+    public String toString() {
+        String str = "House Name=" + name +", Address= "+address;
+        str += " Rooms=\n";
+
+        for (Room sensor : this.rooms) 
+            str += sensor.toString() + "\n";
+
+        str += " Owners=\n";
+
+        for (String event : this.owners) 
+            str += event.toString() + "\n";
+
+        return str;
     }
     
 }
